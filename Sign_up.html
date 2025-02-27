@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Effect</title>
+    <link rel="stylesheet" href="Sign_up.css">
+</head>
+<body>
+    <div class="container glass"></div>
+
+    <div class="contain">
+        <div class="info2">
+            <h1>Sign Up</h1>
+            <img src="../Restorent/restorent/cross2.jpeg" onclick="redirect()" alt="">
+        </div>
+
+        <form action="" method="POST" class="fill-form">
+
+            <div class="name"><br>
+                <p>Enter Full Name</p>
+                <input type="text" name="name" class="form-contrl1" placeholder="Full Name*" required>
+            </div>
+
+            <div class="email"><br>
+                <p>Enter E-mail</p>
+                <input type="email" name="email"  class="form-contrl2" placeholder="E-mail*" required>
+            </div>
+
+            <div class="date"><br>
+                <p>Password</p>
+                <input type="password" name="date" class="form-contrl3" required placeholder="Password">
+            </div>
+
+
+            <div class="info">
+                <p>Confirm password</p>
+                <input type="password" name="time" class="form-contrl4" required placeholder="Confirm password">
+            </div>
+
+            
+            
+        </form>
+        <button type="submit" class="btn" onclick="redirect()">Sign Up</button>
+
+        <div class="sign_in">
+            <a href="sign_in.html">Already have an account? Sign in</a>
+        </div>
+    </div>
+
+
+    <script>
+        function redirect(){
+            window.location.href="food1.html";
+        }
+    </script>
+</body>
+</html>

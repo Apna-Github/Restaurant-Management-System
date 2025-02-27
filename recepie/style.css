@@ -1,0 +1,234 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: rgb(246, 240, 234);;
+}
+
+
+nav{
+    display: flex;
+    padding: 0% 6%;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 5px 5px 10px #d5a770;
+}
+
+nav img{
+    width: 150px;
+}
+
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 5px 12px;
+    position: relative;
+}
+
+.nav-links ul li a{
+    color: #000;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.nav-links ul li::after{
+    content:'';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+
+.Search_icon .fa-solid{
+    display: inline-block;
+    padding: 5px 18px;
+    position: relative;
+    color: #000;
+    transition: 0.3s ease;
+}
+.Search_icon .fa-solid:hover{
+    color: rgb(109, 227, 240);
+}
+
+
+
+
+pre h1{
+    margin-top: 30px;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+
+pre{
+    display: flex;
+    justify-content: center;
+}
+
+pre .back-button {
+    background-color: #bfbcbc;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 30px;
+    margin-top: 60px;
+    margin-left: 240px;
+    transition: scale 0.2 ease;
+    border: 1px solid #898585;
+}
+pre .back-button:active{
+    scale: 0.95;
+}
+pre .back-button:hover {
+    background-color: #f1c284;
+}
+
+.main h1 {
+    margin: 40px 0;
+}
+
+
+/*.image-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}*/
+/*.image-buttons img {
+    width: 100px; /* Size of the image buttons 
+    height: 100px;  Ensure images are square */
+    /*cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.2s, border-color 0.2s;
+}*/
+
+
+
+
+
+.food_menu{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 50px;
+    /* padding: 50px; */
+ }
+ .food_menu h1{
+    font-weight: 700;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2vw;
+    margin-top: 50px;
+ }
+ .image-buttons{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+ }
+ .menu_col{
+    flex-basis: 31%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px 0px rgba(147, 124, 124, 0.2);  
+    margin:  0 25px;
+    cursor: pointer;
+ }
+ .menu_col img{
+    width: 140px; /* Size of the image buttons */
+    height: 140px;  /*Ensure images are square */
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.2s, border-color 0.2s;
+
+    border-radius: 5px;
+    box-shadow: 0 0 20px 0px rgba(234, 190, 125, 0.2); 
+ }
+ .menu_col img:hover{
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+    transform: translateY(-15px);
+    transition: 0.5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.image-buttons img.selected {
+    border-color: #4aee68;
+    transform: scale(1.05);
+}
+.selected-options, .quantity-selector, .payment-options, .bill {
+    margin-top: 20px;
+}
+.quantity-selector select {
+    padding: 5px;
+    font-size: 16px;
+}
+
+.payment-options button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.bill {
+    font-size: 20px;
+    font-weight: bold;
+}
+.bill_btn{
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: 2s ease;
+}
+.bill_btn:hover{
+    background-color: transparent;
+}
+
+/* @media (max-width:600px) {
+    .image-buttons{
+        flex-direction: column;
+    }
+} */
+
+@media (max-width:600px) {
+    .image-buttons{
+        flex-direction: column;
+    }
+    .food_menu{
+        flex-direction: column;
+    }
+    .food_menu h1{
+        font-size: 6vw;
+    }
+    .menu_col{
+        margin-bottom: 20px;
+    }
+    .row .menu_col img{
+        width: 35vw;
+    }
+}

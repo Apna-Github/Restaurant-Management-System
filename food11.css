@@ -1,0 +1,306 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgb(246, 240, 234);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav{
+    display: flex;
+    padding: 0% 6%;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 5px 5px 10px #d5a770;
+}
+
+nav img{
+    width: 150px;
+}
+
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 5px 12px;
+    position: relative;
+}
+
+.nav-links ul li a{
+    color: #000;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.nav-links ul li::after{
+    content:'';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+
+.Search_icon .fa-solid{
+    display: inline-block;
+    padding: 5px 18px;
+    position: relative;
+    color: #000;
+    transition: 0.3s ease;
+}
+.Search_icon .fa-solid:hover{
+    color: rgb(109, 227, 240);
+}
+
+
+/* content part Will Start from here*/
+
+
+
+.content{
+    height:calc(100% - 100px);
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+.left{
+    height: 100%;
+    width: 55%;
+    padding: 5vw 10vw;
+    margin-top: 5vh;
+}
+.left h1{
+    font-family: sans-serif;
+    font-size: 3.8vw;
+    line-height: 4vw;
+}
+.left span{
+    color: #ff7200;
+    text-decoration: underline;
+}
+.left p{
+    font-family: sans-serif;
+    width: 100%;
+    margin-top: 3.5vh;
+    margin-bottom: 4vh;
+    line-height: 25px;
+    word-spacing: 3px;
+}
+
+.content button{
+    /* font-size: 1.1vw; */
+    padding: 10px 15px;
+    background-color: #ff7200;
+    color: whitesmoke;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 7px 8px rgba(237, 167, 61, 0.4);
+    cursor: pointer;
+    outline: none;
+    transition: scale 0.2 ease;
+}
+.content .left .btn:hover{
+    background-color: whitesmoke;
+    color: #000;
+    scale: 1.05;
+}
+.content .left .btn:active{
+    scale: 0.95;
+}
+
+.right{
+    height: 100%;
+    width: 45%;
+    padding: 7vw 10vw;
+}
+.right img{
+    /* margin-top: 10vh; */
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+/* create Responsive First page Part*/
+
+@media (max-width:600px) {
+   
+     .content{
+        width: 100%;
+        height: calc(100% - 60px);      /*aisa isliye kiya kuaki nav ki height=60px hai isme*/
+        flex-direction: column;
+    }
+    .left{ 
+        width: 100%;
+        height: 45%;
+        padding: 4vw 6vw;
+    }
+    .right{ 
+        width: 100%;
+        height: 55%;
+    }
+    .left h1{
+        font-size: 10vw;
+        line-height: 11vw;
+    }
+    .left p{
+        font-size: 3vw;
+        width: 90%;
+        margin-top: 6vw;
+        margin-bottom: 7vw;
+        line-height: 2.7vh;
+    }
+    .right img{
+        margin-left: 0px;
+        padding-left: 0px;
+        width: 320px;
+    }
+    .content button{
+        padding: 2.8vw 5vw;
+        border-radius: 3px;
+        font-weight: 500;
+        font-size: 3.5vw;
+    } }
+
+    /* Now we create a Toggle Button for Menu*/
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        align-items: center;
+        
+    }
+    
+    nav {
+        background-color: #8e5e5e;
+        color: rgb(19, 12, 12);
+        padding: 10px;
+    }
+    
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+    
+    h1 {
+        margin: 0;
+    }
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+    
+    ul li {
+        margin: 0 10px;
+    }
+    
+    ul li a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .toggle-button {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: white;
+        
+        
+    }
+    
+    @media (max-width: 768px) {
+        ul {
+            display: none;
+            flex-direction: column;
+        }
+        ul.active {
+            display: flex;
+        }
+        .toggle-button {
+            display: block;
+        }
+    }
+
+    
+
+
+/* Break fasts Section*/
+.items{
+    width: 80%;
+    min-height: 40vh;
+    background-color: rgb(251, 250, 250);
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-left: 10vw;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    border-radius: 18px;
+}
+.items img{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.items h3{
+    margin-bottom: 10px;
+}
+.items p{
+    margin-bottom: 10px;
+}
+.items .btn{
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s ease;
+    box-shadow: 0 0 5px #e79858,0 0 25px #e79858;
+    color: #ff7200;
+}
+.items .btn:hover{
+    background-color: #ff7200;
+    color: whitesmoke;
+    border: transparent;
+    cursor: pointer;
+    scale: 1.05;
+
+    box-shadow: 0 0 5px #ff7200,
+    0 0 25px #ff7200, 0 0 50px #ff7200,
+    0 0 100px #ff7200, 0 0 200px #ff7200;
+    background-color: #ff7200;
+}
+.items .btn:active{
+    scale: 0.95;
+}
+    
+
+@media (max-width:600px){
+    .items{
+        height: auto;
+        flex-direction: column;
+    }
+}
+
+

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Menu with Image Buttons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: rgb(130, 219, 227);
+        }
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .navbar h1 {
+            margin: 0;
+        }
+        .navbar .back-button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .navbar .back-button:hover {
+            background-color: #777;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .image-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .image-buttons img {
+            width: 100px; /* Size of the image buttons */
+            height: 100px; /* Ensure images are square */
+            cursor: pointer;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .image-buttons img.selected {
+            border-color: #007BFF;
+            transform: scale(1.05);
+        }
+        .selected-options, .quantity-selector, .payment-options, .bill {
+            margin-top: 20px;
+        }
+        .quantity-selector select {
+            padding: 5px;
+            font-size: 16px;
+        }
+        .payment-options button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .bill {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar" >
+    <pre>                                                                                                                                                                                                                   <h1>APANA HOTEL</h1>                                                                    
+    </pre>   
+    
+    </div>
+    <button class="back-button" onclick="goBack()">Back</button>
+    <h1>Select what you want</h1>
+
+    <div class="image-buttons">
+        <img src="C:\Users\Hp\Downloads\indian-tea-spices-masala-chai-33827904 (1).jpg" alt="TEA" data-price="10" onclick="toggleSelection('TEA', 10)">
+        <img src="C:\Users\Hp\Downloads\stock-of-mix-a-cup-coffee-latte-more-motive-top-view-foodgraphy-generative-ai-photo.jpg" alt="cofee" data-price="20" onclick="toggleSelection('cofee', 20)">
+        <img src="C:\Users\Hp\Downloads\Batata-Pohe-Marathi-Recipe.jpg" alt="pohe" data-price="30" onclick="toggleSelection('pohe', 30)">
+        <img src="C:\Users\Hp\Downloads\upma-made-samolina-rava-most-260nw-1907386012.jpg" alt="Upama" data-price="40" onclick="toggleSelection('Upama', 40)">
+        <img src="C:\Users\Hp\Downloads\20220428-0522-recipes-10093 2.jpg" alt="vadapav" data-price="50" onclick="toggleSelection('vadapav', 50)">
+    </div>
+
+    <div id="selectedOptions" class="selected-options">
+        <!-- Selected options will be displayed here -->
+    </div>
+
+    <div id="quantitySelectors" class="quantity-selector">
+        <!-- Quantity selectors will be displayed here -->
+    </div>
+
+    <div id="totalBill" class="bill">
+        <!-- Total bill will be displayed here -->
+    </div>
+
+    <div class="payment-options">
+        <button onclick="pay('online')">Pay Online</button>
+        <button onclick="pay('cash')">Pay Cash</button>
+    </div>
+
+    <button onclick="printBill()">Print Bill</button>
+
+    <script>
+        const selectedOptions = new Map();
+
+        function toggleSelection(optionText, price) {
+            const img = Array.from(document.querySelectorAll('.image-buttons img')).find(img => img.alt === optionText);
+            
+            if (selectedOptions.has(optionText)) {
+                selectedOptions.delete(optionText);
+                img.classList.remove('selected');
+            } else {
+                selectedOptions.set(optionText, price);
+                img.classList.add('selected');
+            }
+            updateSelectedOptions();
+            updateQuantitySelectors();
+            updateTotalBill();
+        }
+
+        function updateSelectedOptions() {
+            const selectedOptionsDiv = document.getElementById('selectedOptions');
+            const options = Array.from(selectedOptions.keys()).join(', ');
+            selectedOptionsDiv.textContent = `Selected Options: ${options || 'None'}`;
+        }
+
+        function updateQuantitySelectors() {
+            const quantitySelectorsDiv = document.getElementById('quantitySelectors');
+            quantitySelectorsDiv.innerHTML = ''; // Clear previous selectors
+            
+            selectedOptions.forEach((price, optionText) => {
+                const label = document.createElement('label');
+                label.textContent = `Quantity for ${optionText}: `;
+                
+                const select = document.createElement('select');
+                select.setAttribute('data-option', optionText);
+                
+                for (let i = 1; i <= 10; i++) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.textContent = i;
+                    select.appendChild(option);
+                }
+                
+                select.addEventListener('change', updateTotalBill);
+                
+                label.appendChild(select);
+                quantitySelectorsDiv.appendChild(label);
+                quantitySelectorsDiv.appendChild(document.createElement('br'));
+            });
+        }
+
+        function updateTotalBill() {
+            const totalBillDiv = document.getElementById('totalBill');
+            let total = 0;
+            
+            selectedOptions.forEach((price, optionText) => {
+                const select = document.querySelector(`select[data-option="${optionText}"]`);
+                const quantity = parseInt(select.value);
+                total += price * quantity;
+            });
+            
+            totalBillDiv.textContent = `Total Bill: $${total.toFixed(2)}`;
+        }
+
+        function pay(method) {
+            const total = document.getElementById('totalBill').textContent;
+            alert(`Payment Method: ${method}\n${total}`);
+        }
+
+        function printBill() {
+            const billContent = `
+                <h1>Bill Summary</h1>
+                <div>${document.getElementById('selectedOptions').innerHTML}</div>
+                <div>${document.getElementById('quantitySelectors').innerHTML}</div>
+                <div>${document.getElementById('totalBill').innerHTML}</div>
+            `;
+            const printWindow = window.open('', '', 'height=600,width=800');
+            printWindow.document.write('<html><head><title>Print Bill</title></head><body>');
+            printWindow.document.write(billContent);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.focus();
+            printWindow.print();
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

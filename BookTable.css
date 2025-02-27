@@ -1,0 +1,172 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.Booktable{
+    width: 90%;
+    height: 90vh;
+    background-image: url(../Restorent/restorent/hotel1.jpeg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 5vh;
+    margin-left: 5%;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    z-index: -1;
+    filter: blur(3px);
+}
+body{
+    display: grid;
+    place-items: center;
+    top: 50%;
+}
+.contain{
+    height: 50vh;
+    width: 500px;
+    background-color: whitesmoke;
+    border: transparent;
+    place-content: center;
+    position: absolute;
+    padding: 30px;
+    border-radius: 10px;
+}
+.contain h1{
+    color: #ff7200;
+}
+
+.contain .form-contrl1{
+    padding: 1vh 8vw;
+}
+.contain .form-contrl2{
+    padding: 1vh 8vw;
+}
+.contain .form-contrl3{
+    padding: 1vh 9.6vw;
+}
+.contain .form-contrl4{
+    padding: 1vh 11.2vw;
+}
+
+/* .btn{
+    padding: 1.5vh 5vw;
+    margin-top: 15px;
+    background-color: coral;
+    border: transparent;
+    color: aliceblue;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: scale 0.2 ease;
+}
+.btn:hover{
+    background-color:  #ff7200;
+    color: black;
+    border: transparent;
+    scale: 1.05;
+}
+.conain .btn:active{
+    scale: 0.95;
+} */
+
+.container{
+    /* width: 100%;
+    height: 100vh;
+    background: #3c5077; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    padding: 10px 60px;
+    background: #fff;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(245, 221, 212);
+
+    margin-top: 15px;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 30px;
+    transition: scale 0.2 ease;
+}
+
+.container .btn:active{
+    scale: 0.95;
+}
+
+.popup{
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    /* top: 50%; */
+    top: 0;
+    left: 50%;
+    /* transform: translate(-50%,-50%); */
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    /*after*/
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+.popup img{
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.popup h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+.popup button{
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+.info2{
+    display: flex;
+    justify-content: space-between;
+}
+.info2 img{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 40px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+.info2 img:active{
+    scale: 0.95;
+    border: 1px solid #6a6565;
+}
+.info img:hover{
+    box-shadow: 10px 2px 3px rgba(238, 135, 130, 0.2);
+}
+
+@media (max-width:600px) {
+    .contain{
+        width: 60vw;
+    }
+    .btn{
+        font-size: 19px;
+    }
+}

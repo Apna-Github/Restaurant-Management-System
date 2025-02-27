@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Effect</title>
+    <link rel="stylesheet" href="sign_in.css">
+</head>
+<body>
+    <div class="container glass"></div>
+
+    <div class="contain">
+        <div class="info2">
+            <h1>Sign In</h1>
+            <img src="../Restorent/restorent/cross2.jpeg" onclick="redirect()" alt="">
+        </div>
+
+        <form action="" method="POST" class="fill-form">
+
+            
+            <div class="email"><br>
+                <p>Enter Your E-mail</p>
+                <input type="email" name="email"  class="form-contrl2" placeholder="E-mail*" required>
+            </div>
+
+            <div class="date"><br>
+                <p>Enter Password</p>
+                <input type="password" name="date" class="form-contrl3" required placeholder="Password">
+            </div>
+
+            
+            
+        </form>
+        <button type="submit" class="btn" onclick="redirect()">Sign In</button>
+        
+
+        <div class="sign_in">
+            <a href="Sign_up.html">If You Can't Sign up? Sign up</a>
+        </div>
+    
+    </div>
+
+
+    <script>
+        function redirect(){
+            window.location.href="food1.html";
+        }
+    </script>
+</body>
+</html>
